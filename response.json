@@ -1,0 +1,1 @@
+{"errorMessage": "Syntax error in module 'ej_lambda': invalid syntax (ej_lambda.py, line 3)", "errorType": "Runtime.UserCodeSyntaxError", "stackTrace": ["  File \"/var/task/ej_lambda.py\" Line 3\n    def ej-lambda(event, context):\n"]}
