@@ -12,9 +12,7 @@ echo
 
 echo -n " ## Create role: "
 policy='{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}'
-myarn=`aws iam create-role \
-    --role-name ej_lambda \
-    --assume-role-policy-document ${policy}` 2>/dev/null| perl -lne 'print if s/\|\|\s+(Arn)\s+\|(.*)\|\|/\2/' |tr -d ' '`
+myarn=`aws iam create-role --role-name ej_lambda --assume-role-policy-document ${policy} 2>/dev/null| perl -lne 'print if s/\|\|\s+(Arn)\s+\|(.*)\|\|/\2/' |tr -d ' '`
     
 [ ! -z $myarn ] && ( myid=`echo $myarn|cut -d':' -f5`; echo " ...OK: [myid=${myid}; myarn=${myarn}]") || (echo '  ... FAILED Creating role!';return -1)
 
